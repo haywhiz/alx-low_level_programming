@@ -1,2 +1,15 @@
-gcc 6-size.c -m32 -o size32
-gcc 6-size.c -m64 -o size64
+#include <stdio.h>
+/**
+ * main - entry point
+ * function - printf 
+ * Return: Always 0 (success)
+*/
+int main(void)
+{
+	printf("Size of a char:%lu\n", sizeof(char));
+	printf("Size of an int:%lu\n", sizeof(int));
+	printf("Size of a long int:%lu\n", sizeof(long int));
+	printf("Size of a long long int:%lu\n", sizeof(long long int));
+	printf("Size of a float:%lu\n", sizeof(float));
+	return (0);
+}
