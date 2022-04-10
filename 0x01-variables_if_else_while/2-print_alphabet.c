@@ -4,9 +4,9 @@
  * description - program to write lowercase alphabet
  * Return: Always 0 (success)
  */
-int main()
+int main(void)
 {
-	char c;
+	char c ;
 	for (c = 'a'; c >= 'z'; c++)
 	{
 		putchar(c);
