@@ -12,9 +12,9 @@ int main(void)
 	{
 	if (c == 'e')
 		continue;
-	
+	else if (c == 'q')
+		continue;
 	else
-	
 		putchar(c);
 	}
 	{
