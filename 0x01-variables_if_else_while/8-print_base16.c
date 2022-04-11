@@ -13,7 +13,7 @@ int main(void)
 	{
 		putchar(c);
 	}
-	for (hex = 61; hex <= 66; hex++)
+	for (hex = 97; hex <= 102; hex++)
 	{
 		putchar(hex);
 	}
