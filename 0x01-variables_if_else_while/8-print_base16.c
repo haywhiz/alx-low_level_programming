@@ -9,7 +9,7 @@ int main(void)
 	char c;
 	char hex;
 
-	for (c = 30; c <= 39; c++)
+	for (c = 48; c <= 57; c++)
 	{
 		putchar(c);
 	}
