@@ -8,7 +8,6 @@ int main(void)
 {
 	char c[9] = "character"
 		int i;
-	int i;
 
 	_putchar('_');
 
