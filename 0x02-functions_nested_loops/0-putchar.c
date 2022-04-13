@@ -7,10 +7,10 @@
 */
 int main(void)
 {
-	{ 
+	{
 		printf(" _putchar");
 	}
-	_putchar('\n');
-	
+	printf('\n');
+
 	return (0);
-}	
+}
