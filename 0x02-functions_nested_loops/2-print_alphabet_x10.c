@@ -4,6 +4,8 @@
  *
  *  print_alphabet_x10 - print alphabet
  *
+ *  description - print_alphabet_x10
+ *
  *  Return: Always 0 (success)
 */
 
