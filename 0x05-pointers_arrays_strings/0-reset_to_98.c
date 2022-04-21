@@ -1,15 +1,14 @@
 #include "main.h"
 
 /**
- * main - entry point
- * description - pointers task
- * description - function reset_to_98
+ * reset_to_98 - function description updates the *n
+ * reset_to_98 - updates the value *n points to.
+ * @n: the number to modify.
  * Return: Always 0
 */
 
 void reset_to_98(int *n)
 {
-
 	*n = 98;
 
 }
