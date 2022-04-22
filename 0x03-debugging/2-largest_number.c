@@ -26,7 +26,7 @@ int largest_number(int a, int b, int c)
 			largest = c;
 		}
 	else
-		printf("%lu", int largest_number);
+		printf("lowest\n");
 	
 
 	return (largest);
