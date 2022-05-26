@@ -1,85 +1,51 @@
 #include <stdio.h>
-void calculation(long a, long b, int n);
-void space(int n);
-/**
- * main - Entry point
- * Description: Calculates the first 50 Fibonacci numbers
- * Return: Always Zero
- */
 
+/**
+ * main - Prints the first 98 Fibonacci numbers, starting with
+ *        1 and 2, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	int n;
-	long a;
-	long b;
-	long c;
+int count;
+unsigned long fib1 = 0, fib2 = 1, sum;
+unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
+unsigned long half1, half2;
 
-	a = 1;
-	b = 2;
-	c = 0;
-	printf("%lu, ", a);
-	printf("%lu", b);
-	for (n = 0; n <= 88; n++)
-	{
-		space(n);
-		if (n <= 88)
-			c = a + b;
-			a = b;
-			b = c;
-			printf("%lu", c);
-
-		if (n >= 88)
-		{
-			calculation(a, b, n);
-		}
-	}
-	printf("\n");
-	return (0);
-}
-/**
- * space - prints spaces and commas when necessary
-  * @n : counter for condition
- */
-void space(int n)
+for (count = 0; count < 92; count++)
 {
-	if (n <= 92)
-		printf(", ");
+sum = fib1 + fib2;
+printf("%lu, ", sum);
+
+fib1 = fib2;
+fib2 = sum;
 }
-/**
- * calculation - calculates for numbers that are higher than long max
- * @a : fibnumber
- * @b : fibnumber
- * @n : counter for loop
- */
-void calculation(long a, long b, int n)
+
+fib1_half1 = fib1 / 10000000000;
+fib2_half1 = fib2 / 10000000000;
+fib1_half2 = fib1 % 10000000000;
+fib2_half2 = fib2 % 10000000000;
+
+for (count = 93; count < 99; count++)
 {
-	long body_a;
-	long head_a;
-	long body_b;
-	long head_b;
-	long body_sum;
-	long head_sum;
+half1 = fib1_half1 + fib2_half1;
+half2 = fib1_half2 + fib2_half2;
+if (fib1_half2 + fib2_half2 > 9999999999)
+{
+half1 += 1;
+half2 %= 10000000000;
+}
 
-	head_a = a / 1000000000000000000;
-	body_a = a % 1000000000000000000;
+printf("%lu%lu", half1, half2);
+if (count != 98)
+printf(", ");
 
-	head_b = b / 1000000000000000000;
-	body_b = b % 1000000000000000000;
-
-	for (; n <= 94; n++)
-	{
-		body_sum = body_a + body_b;
-		head_sum = head_a + head_b;
-		if (body_sum > 1000000000000000000)
-		{
-			body_sum = body_sum % 1000000000000000000;
-			head_sum = head_sum + 1;
-		}
-		printf(", %lu%lu", head_sum, body_sum);
-		body_a = body_b;
-		body_b = body_sum;
-
-		head_a = head_b;
-		head_b = head_sum;
-	}
+fib1_half1 = fib2_half1;
+fib1_half2 = fib2_half2;
+fib2_half1 = half1;
+fib2_half2 = half2;
+}
+printf("\n");
+return (0);
 }
