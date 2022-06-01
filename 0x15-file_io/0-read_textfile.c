@@ -1,16 +1,16 @@
-#include "main.h"
-/**
- * read_textfile - Reads a file and prints it to the POSIX stdout.
- * @filename: The name of the file that needs to be read.
- * @letters: Is the number of letters the function should print.
- * Return: The actual number of letters it could read and print.
- */
+#include "holberton.h"
 
+/**
+ * read_textfile - reads a text file and prints it to the POSIX standard output
+ * @filename: type char filename
+ * @letters: type size_t letters
+ * Return: if cannot be oppened or read 0, if is NULL 0, if writes fail 0
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+
 	int fd;
-	int i;
-	int read_letters;
+	ssize_t rd, wr;
 	char *buf;
 
 	if (filename == NULL)
@@ -24,26 +24,21 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buf);
 		return (0);
 	}
-
-	read_letters = read(fd, buf, letters);
-	if (read_letters == -1)
+	rd = read(fd, buf, letters);
+	if (rd == -1)
 	{
+		free(buf);
 		close(fd);
+		return (0);
+	}
+	close(fd);
+	wr = write(STDOUT_FILENO, buf, rd);
+	if (wr == -1)
+	{
 		free(buf);
 		return (0);
 	}
-
-	for (i = 0; i < read_letters; i++)
-	{
-		if (write(STDOUT_FILENO, &buf[i], 1) == -1)
-		{
-			close(fd);
-			free(buf);
-			return (0);
-		}
-
-	}
-	close(fd);
-	free(buf);
-	return (read_letters);
+	if (wr != rd)
+		return (0);
+	return (rd);
 }
